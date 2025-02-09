@@ -1,7 +1,7 @@
 # Task Tracker
 
 ## Description
-Task Tracker is a web application designed to help users manage and track their daily tasks efficiently. It allows users to add, edit, delete, and mark tasks as completed.
+Task Tracker - your own productivity tool is a web application designed to help users manage and track their daily tasks efficiently. It allows users to add, edit, delete, and mark tasks as completed. 
 
 ## Features
 - Add new tasks
