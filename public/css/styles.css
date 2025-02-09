@@ -1,0 +1,217 @@
+/* ....................................... */
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  /* Flexbox for aligning the footer */
+  flex-direction: column;
+  /* Column layout */
+  /* padding-top: 60px; */
+}
+
+.container {
+  flex: 1;
+}
+
+/* General Navbar Fix */
+.navbar {
+  background-color: #e76f51 !important;
+  padding: 10px 20px;
+}
+
+.navbar .nav-link {
+  font-size: 1.3rem !important;
+  font-weight: 500 !important;
+  color: #333 !important;
+  margin-right: 15px !important;
+  /* margin-bottom: 15px; */
+}
+
+.navbar .nav-link:hover {
+  color: #e4edf7 !important;
+  box-shadow: #333 !important;
+}
+
+.list-group-item {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.fa-check-double {
+  font-size: 2rem;
+}
+
+
+.navbar .search-bar {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+/* Adjust search bar inputs for smaller screens */
+/* Fix Overlapping Issues on Smaller Screens */
+@media (max-width: 992px) {
+  .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+  }
+
+  .navbar .search-bar {
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .navbar .search-bar input,
+  .navbar .search-bar select,
+  .navbar .search-bar button {
+    width: 100%;
+  }
+}
+
+/* footer */
+.f-info {
+  background-color: #b7aaaa;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: space-evenly;
+  text-align: center;
+  flex-wrap: wrap;
+  /* padding-bottom: 0 !important;  */
+  /* position: absolute;
+  margin-bottom: 0; */
+  width: 100%;
+}
+
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-info-socials {
+  font-size: 1.3rem;
+}
+
+.f-info-socials i {
+  margin-right: 1.7rem;
+  color: #222222;
+
+  &:hover {
+    color: #5b5f78;
+  }
+}
+
+.f-info-links a {
+  color: #222222;
+  text-decoration: none;
+  margin-right: 1.3rem;
+  margin-top: 2.5rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
+/* Navbar search bar */
+.navbar .search-bar {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+  align-items: space-evenly;
+}
+
+.navbar .search-bar input,
+.navbar .search-bar select {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #191818;
+  border-radius: 7px;
+}
+
+.navbar .search-bar button {
+  padding: 5px 10px;
+  margin-right: 1rem;
+
+  background-color: #000000;
+  color: white;
+  border: 1px solid #000000;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+
+.navbar .search-bar button:hover {
+  background-color: #f6fbff;
+  color: #000000;
+}
+
+/* Additional buttons */
+.btn.btn-outline-light.go-back {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn.btn-outline-light.go-back:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #000000;
+}
+
+
+.btn.btn-outline-warning.addTask {
+
+  background-color: #e0a800;
+  color: #000000;
+  border: 1px solid #ffc107;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn.btn-outline-warning.addTask:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e0a800;
+}
+
+.colored-toast.swal2-icon-success {
+  background-color: #88c167 !important;
+}
+
+
+/* .alert-success .btn btn-dark go-back{
+  background-color: #000000 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+
+  &:hover{
+    background-color: #f6fbff !important;
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+  }
+} */

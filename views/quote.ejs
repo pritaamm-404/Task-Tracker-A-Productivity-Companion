@@ -1,0 +1,23 @@
+<% layout("/layouts/boilerplate") %>
+
+  <body>
+    <div class="alert alert-success mt-5 col-6 offset-3 " role="alert">
+      <h4 class="alert-heading">Congratulations!!!</h4>
+      <p>You completed a task!</p>
+      <hr>
+      <p class="mb-0">
+      <blockquote>
+        <p>Quote to remember:</p>
+        <p>
+          "<%= quote.text ? quote.text : 'Great job! Keep pushing forward!' %>"
+        </p>
+        <% if (quote.author) { %>
+          <footer>- <%= quote.author %>
+          </footer>
+          <% } %>
+      </blockquote>
+      <a href="/tasks" class="btn btn-outline-light go-back">Go Back to Tasks</a>
+      </p>
+    </div>
+    <br>
+  </body>

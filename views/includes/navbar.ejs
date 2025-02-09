@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/tasks"><i class="fa-solid fa-check-double"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <a class="nav-link nav-item" href="/tasks">All Tasks</a>
+        <a class="nav-link nav-item" href="/tasks/new">Add New Task</a>
+      </ul>
+      <!-- Search Form -->
+      <!-- Improve the search bar -->
+      <form action="/tasks" method="GET" class="d-flex ms-auto search-bar">
+        <input type="text" name="search" placeholder="Search by title only" value="<%= search || '' %>"
+          class="form-control me-2" />
+        <!-- <input type="text" name="category" placeholder="Filter by category only" value="<%= category || '' %>"
+          class="form-control me-2" /> -->
+        <select name="priority" class="form-select me-2">
+          <option value="<%= priority || '' %>">Filter by priority</option>
+          <option value="Low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
+        </select>
+        <button type="submit" class="btn btn-dark search">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>

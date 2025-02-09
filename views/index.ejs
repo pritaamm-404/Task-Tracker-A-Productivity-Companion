@@ -1,0 +1,99 @@
+<% layout("/layouts/boilerplate") %>
+  <!-- Include SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Success Toast -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const urlParams = new URLSearchParams(window.location.search);
+
+      if (urlParams.has("success")) {
+        Swal.fire({
+          toast: true,
+          icon: 'success',
+          iconColor: 'white',
+          customClass: {
+            popup: 'colored-toast',
+          },
+          title: "Task added successfully!",
+          position: 'top-end',
+          showConfirmButton: false,
+          // showCancelButton: true,
+          timerProgressBar: true,
+          timer: 4000
+        });
+        history.replaceState(null, "", window.location.pathname); // Remove query params after showing alert
+      }
+
+      if (urlParams.has("error")) {
+        Swal.fire({
+          toast: true,
+          icon: 'error',
+          title: "Something went wrong! Try again.",
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        history.replaceState(null, "", window.location.pathname); // Remove query params after showing alert
+      }
+    });
+  </script>
+
+  <!-- Define pending and completed tasks -->
+  <% let pendingTasks=tasks.filter((task)=> task.status === "Pending"); %>
+    <% let completedTasks=tasks.filter((task)=> task.status === "Completed"); %>
+
+      <!-- Display Pending Tasks -->
+      <h2 class="text-dark">Pending Tasks</h2>
+      <% if (pendingTasks.length===0) { %>
+        <div class="text-center mt-4">
+          <img src="/img/no-tasks.svg" alt="No tasks" style="width: 200px; opacity: 0.8;">
+          <p class="text-muted mt-2">No pending tasks to show. Start by adding a new task!</p>
+          <a href="/tasks/new" class="btn btn-outline-warning addTask mt-2">Add Task</a>
+        </div>
+        <% } else { %>
+          <ul class="list-group mb-4">
+            <% pendingTasks.forEach((task)=> { %>
+              <li class="list-group-item">
+                <strong>
+                  <%= task.title %>:
+                </strong>
+                <%= task.description %><br>
+                  <strong>Priority:</strong>
+                  <%= task.priority %><br>
+                    <strong>Due Date:</strong>
+                    <%= task.dueDate.toString().split(" ").slice(0,4).join(" -") %><br>
+                      <form action="/tasks/<%= task._id %>/complete" method="POST" class="mt-2">
+                        <button class="btn btn-success">Mark as completed</button>
+                      </form>
+              </li>
+              <% }); %>
+          </ul>
+          <% } %>
+
+            <!-- Display Completed Tasks -->
+            <h2 class="text-dark">Completed Tasks</h2>
+            <% if (completedTasks.length===0) { %>
+              <div class="text-center mt-4">
+                <img src="/img/no-completed-tasks.svg" alt="No completed tasks" style="width: 200px; opacity: 0.8;">
+                <p class="text-muted mt-2">No completed tasks to show. Keep going!</p>
+              </div>
+              <% } else { %>
+                <ul class="list-group">
+                  <% completedTasks.forEach((task)=> { %>
+                    <li class="list-group-item">
+                      <strong>
+                        <%= task.title %>:
+                      </strong>
+                      <%= task.description %><br>
+                        <strong>Priority:</strong>
+                        <%= task.priority %><br>
+                          <form id="deleteForm-<%= task._id %>" action="/tasks/<%= task._id %>/delete" method="POST"
+                            class="mt-2 delete-form">
+                            <button class="btn btn-danger delete-btn" onclick="confirmDelete('<%= task._id %>', event)">
+                              Delete
+                            </button>
+                          </form>
+                    </li>
+                    <% }); %>
+                </ul>
+                <% } %>
