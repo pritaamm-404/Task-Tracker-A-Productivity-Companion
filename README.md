@@ -25,7 +25,7 @@ Task Tracker is a web application designed to help users manage and track their 
     ```bash
     cd Task_Tracker
     ```
-3. Run the command in terminal to view the application in your web browser:
+3. Run the command in the terminal to view the application in your web browser:
     ```bash
     node app.js
     ```
@@ -45,4 +45,4 @@ Contributions are welcome! Please fork the repository and create a pull request 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contact
-For any questions or feedback, please contact [trydaspritam@gmail.com].
+For any questions or feedback, please get in touch with trydaspritam@gmail.com.
