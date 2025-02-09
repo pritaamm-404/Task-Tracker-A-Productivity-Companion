@@ -144,7 +144,9 @@ router.post("/:id/complete", async (req, res) => {
 // Delete a task
 router.post("/:id/delete", async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
-  res.redirect("/tasks");
+  req.flash("success", "Task deleted successfully!");
+  res.redirect("/tasks?success=1"); // Use query param instead of relying only on flash
+  // res.redirect("/tasks");
 });
 
 export default router;
