@@ -86,7 +86,7 @@ router.post("/", async (req, res) => {
     await newTask.save();
 
     req.flash("success", "Task added successfully!");
-    res.redirect("/tasks?success=1"); // Use query param instead of relying only on flash
+    res.redirect("/tasks?success=added"); // Use query param instead of relying only on flash
   } catch (error) {
     console.error(error);
     req.flash("error", "Something went wrong!");
@@ -145,7 +145,7 @@ router.post("/:id/complete", async (req, res) => {
 router.post("/:id/delete", async (req, res) => {
   await Task.findByIdAndDelete(req.params.id);
   req.flash("success", "Task deleted successfully!");
-  res.redirect("/tasks?success=1"); // Use query param instead of relying only on flash
+  res.redirect("/tasks?success=deleted"); // Use query param instead of relying only on flash
   // res.redirect("/tasks");
 });
 

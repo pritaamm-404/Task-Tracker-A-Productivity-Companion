@@ -5,7 +5,7 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.has("success")) {
+      if (urlParams.get("success") === "added") {
         Swal.fire({
           toast: true,
           icon: 'success',
@@ -18,10 +18,10 @@
           showConfirmButton: false,
           // showCancelButton: true,
           timerProgressBar: true,
-          timer: 4000
+          timer: 3000
         });
         history.replaceState(null, "", window.location.pathname); // Remove query params after showing alert
-      } if (urlParams.has("success")) {
+      } if (urlParams.get("success") === "deleted") {
         Swal.fire({
           toast: true,
           icon: 'success',
@@ -33,7 +33,7 @@
           position: 'top-end',
           showConfirmButton: false,
           timerProgressBar: true,
-          timer: 4000
+          timer: 3000
         });
         history.replaceState(null, "", window.location.pathname); // Remove query params after showing alert
       }
